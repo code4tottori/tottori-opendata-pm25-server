@@ -1,5 +1,5 @@
 {
-  "name": "Tottori OpenData PM2.5 API Server",
+  "name": "tottori-od-pm25-api-server",
   "description": "Tottori OpenData PM2.5 API Server",
   "repository": "https://github.com/code4tottori/tottori-opendata-pm25-server",
   "website": "https://github.com/code4tottori/tottori-opendata-pm25-server",
