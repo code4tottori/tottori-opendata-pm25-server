@@ -6,7 +6,14 @@
 GET /%Y%m%d.json
 </pre>
 
+<pre>
+GET /today.json
+</pre>
+
 <p>Example:</p>
 
 <% today = Time.now.in_time_zone('Asia/Tokyo').to_date.strftime('%Y%m%d') %>
-<%= link_to url_for(controller:'records', action:'show', date:today), controller:'records', action:'show', date:today %>
+<ul>
+  <li><%= link_to url_for(controller:'records', action:'show', date:today), controller:'records', action:'show', date:today %></li>
+  <li><%= link_to url_for(controller:'records', action:'show', date:'todaty'), controller:'records', action:'show', date:'today' %></li>
+</ul>
