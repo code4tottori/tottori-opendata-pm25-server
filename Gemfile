@@ -16,8 +16,13 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'tottori-opendata-pm25-api'
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'rack-mini-profiler', require:false
 end
 
 group :development do
@@ -25,6 +30,14 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'bullet'
+  gem 'pry-rails'
+  gem 'pry-doc', require: false
+  gem 'pry-coolline'
+  gem 'pry-byebug', platforms: :mri
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'guard-livereload', require:false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
