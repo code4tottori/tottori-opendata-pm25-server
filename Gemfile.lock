@@ -188,7 +188,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.3.13)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -240,7 +239,6 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3
   therubyracer
   tottori-opendata-pm25-api
   tzinfo-data
