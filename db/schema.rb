@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170123154240) do
 
-  create_table "records", id: false, force: :cascade do |t|
+  create_table "records", force: :cascade do |t|
     t.date     "date",       null: false
     t.text     "data",       null: false
     t.datetime "created_at", null: false
