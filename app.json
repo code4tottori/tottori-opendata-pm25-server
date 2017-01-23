@@ -1,6 +1,6 @@
 {
-  "name": "Toririn Chat",
-  "description": "Toririn Chat",
+  "name": "Tottori OpenData PM2.5 API Server",
+  "description": "Tottori OpenData PM2.5 API Server",
   "repository": "https://github.com/code4tottori/tottori-opendata-pm25-server",
   "website": "https://github.com/code4tottori/tottori-opendata-pm25-server",
   "keywords": [
