@@ -1,0 +1,23 @@
+{
+  "name": "Toririn Chat",
+  "description": "Toririn Chat",
+  "repository": "https://github.com/code4tottori/tottori-opendata-pm25-server",
+  "website": "https://github.com/code4tottori/tottori-opendata-pm25-server",
+  "keywords": [
+    "Tottori",
+    "OpenData",
+    "PM2.5",
+    "API",
+    "Rails 5"
+  ],
+  "scripts": {
+    "postdeploy": "bundle exec rails db:migrate && bundle exec rails db:seed"
+  },
+  "addons": ["heroku-postgresql"],
+  "success_url": "/",
+  "env": {
+    "RAILS_FORCE_SSL": {
+      "value": "enabled"
+    }
+  }
+}
