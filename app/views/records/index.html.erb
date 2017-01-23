@@ -1,0 +1,12 @@
+<h1>Tottori OpenData PM2.5 Server</h1>
+
+<p>API:</p>
+
+<pre>
+GET /%Y%m%d.json
+</pre>
+
+<p>Example:</p>
+
+<% today = Time.now.in_time_zone('Asia/Tokyo').to_date.strftime('%Y%m%d') %>
+<%= link_to url_for(controller:'records', action:'show', date:today), controller:'records', action:'show', date:today %>
