@@ -1,7 +1,5 @@
 <h1>Tottori OpenData PM2.5 API Server</h1>
 
-<% updated_at = Record.order(:updated_at).select(:updated_at).last&.updated_at %>
-<p>Updated at: <%= updated_at&.in_time_zone('Asia/Tokyo') %> (<%= updated_at&.utc %>)</p>
 
 <p>API:</p>
 
