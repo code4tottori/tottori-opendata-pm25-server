@@ -17,7 +17,7 @@ GET /%Y%m%d.json
 
 <ul>
   <li><%= link_to url_for(controller:'records', action:'show', date:'todaty'), controller:'records', action:'show', date:'today' %></li>
-<% Record.order('date DESC').each do |record| %>
+<% Record.order('date DESC').select(:date).each do |record| %>
   <li><%= link_to url_for(controller:'records', action:'show', date:record.date.strftime('%Y%m%d')), controller:'records', action:'show', date:record.date.strftime('%Y%m%d') %></li>
 <% end %>
 </ul>
