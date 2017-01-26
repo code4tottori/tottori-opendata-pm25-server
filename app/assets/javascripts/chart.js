@@ -1,14 +1,9 @@
 var params = {
     "type": "serial",
     "theme": "light",
-    "marginRight": 40,
-    "marginLeft": 40,
-    "autoMarginOffset": 20,
     "legend": {
         "horizontalGap": 10,
-        "maxColumns": 1,
-        "position": "right",
-        "useGraphSettings": true,
+        "position": "bottom",
         "markerSize": 10
     },
     "valueAxes": [
