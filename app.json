@@ -19,5 +19,10 @@
     "RAILS_FORCE_SSL": {
       "value": "enabled"
     }
-  }
+  },
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
 }
