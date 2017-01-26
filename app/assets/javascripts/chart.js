@@ -46,6 +46,15 @@ var params = {
         "minPeriod": "mm",
         "minorGridEnabled": true,
         "parseDates": true
+    },
+    "balloon": {
+        "borderThickness": 1,
+        "shadowAlpha": 0
+    },
+    "chartCursor": {
+        "valueLineEnabled": true,
+        "valueLineBalloonEnabled": true,
+        "cursorAlpha": 0
     }
 }
 
@@ -60,11 +69,14 @@ function addGraph(name) {
         "id": name,
         "title": name,
         "valueField": name,
-        "bullet": "round",
-        "bulletSize": 4,
-        "lineThickness": 2,
-        "bulletBorderAlpha": 1,
-        "balloonText": "<span'>[[value]] μg/m3</span>"
+        "fillAlphas": 0.2,
+        "balloon": {
+            "drop": true,
+            "adjustBorderColor": false,
+            "color": "#ffffff",
+            "type": "smoothedLine"
+        },
+        "balloonText": "<span'>[[title]]: [[value]] μg/m3</span>"
     });
 }
 
