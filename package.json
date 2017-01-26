@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "amcharts": "^3.14.5"
+  },
+  "cacheDirectories": [
+    "node_modules"
+  ]
+}

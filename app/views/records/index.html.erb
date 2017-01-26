@@ -1,36 +1,45 @@
 <h1>Tottori Open Data PM2.5 API Server</h1>
 
-<p>
-  <strong>API:</strong>
-</p>
-
-<pre>
-GET /today.json
-</pre>
-
-or
-
-<pre>
-GET /%Y%m%d.json
-</pre>
-
-<p>
-  <strong>Example:</strong>
-</p>
-
-<ul>
-  <li><%= link_to url_for(controller:'records', action:'show', date:'todaty'), controller:'records', action:'show', date:'today' %></li>
-  <% Record.order('date DESC').select(:date).each do |record| %>
-  <li><%= link_to url_for(controller:'records', action:'show', date:record.date.strftime('%Y%m%d')), controller:'records', action:'show', date:record.date.strftime('%Y%m%d') %></li>
-  <% end %>
-</ul>
-
 <% last_updated_at = Record.last_updated_at %>
 <p>
   <strong>Last Updated at:</strong>
   <span><%= last_updated_at&.in_time_zone('Asia/Tokyo') %></span>
   <span>(<%= last_updated_at&.utc %>)</span>
 </p>
+
+<p>
+  <strong>Example:</strong>
+</p>
+
+<div id="chart"></div>
+
+<p>
+  <strong>Example:</strong>
+</p>
+
+<ul>
+  <li><%= link_to url_for(controller:'records', action:'graph'), controller:'records', action:'graph' %></li>
+  <li><%= link_to url_for(controller:'records', action:'show', date:'todaty'), controller:'records', action:'show', date:'today' %></li>
+  <% Record.order('date DESC').select(:date).each do |record| %>
+  <li><%= link_to url_for(controller:'records', action:'show', date:record.date.strftime('%Y%m%d')), controller:'records', action:'show', date:record.date.strftime('%Y%m%d') %></li>
+  <% end %>
+</ul>
+
+<p>
+  <strong>API:</strong>
+</p>
+
+<pre>
+GET /graph.json
+</pre>
+
+<pre>
+GET /today.json
+</pre>
+
+<pre>
+GET /%Y%m%d.json
+</pre>
 
 <p>
   <strong>Source code:</strong>

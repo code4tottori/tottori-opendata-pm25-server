@@ -4,6 +4,41 @@ class RecordsController < ApplicationController
   def index
   end
 
+  def graph
+    # build tidy data
+    data = {}
+    Record.all.each do |record|
+      JSON.parse(record.data).each do |entry|
+        entry_name = entry['name']
+        entry_values = entry['values']
+        entry_values.each do |entry_value|
+          entry_time = entry_value['time']
+          entry_value = entry_value['value']
+          row = {
+            name: entry_name,
+            time: entry_time,
+            value: entry_value,
+          }
+          if row[:value]
+            data[row[:time]] ||= {}
+            data[row[:time]][row[:name]] ||= row[:value]
+          end
+        end
+      end
+    end
+    # build json
+    json = {}
+    json[:names] = data.values.map(&:keys).uniq.flatten.uniq
+    data.keys.sort.each do |time|
+      values = data[time]
+      values.merge!(time:time)
+      json[:values] ||= []
+      json[:values] << values
+    end
+    # render json
+    render json:json.to_json
+  end
+
   # GET /records/20170124.json
   def show
     @date = (params[:date] == 'today' ? Date.today : Date.parse(params[:date]))
