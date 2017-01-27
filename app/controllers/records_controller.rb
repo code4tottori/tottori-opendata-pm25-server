@@ -51,7 +51,7 @@ class RecordsController < ApplicationController
     @date = Date.parse(params[:date])
     # 未来のデータは存在しないので404
     if @date > Time.now.in_time_zone('Asia/Tokyo').to_date
-      render json:{}, status: :not_found and return
+      render json:[], status: :not_found and return
     end
     # DBを調べる
     @record = Record.find_by(date:@date)
@@ -81,7 +81,7 @@ class RecordsController < ApplicationController
       # 鳥取県のウェブサイトには6日前までしかデータを公開していない
       # その日よりも前のデータは存在しないので404
       if @date < Time.now.ago(6.days).in_time_zone('Asia/Tokyo').to_date
-        render json:{}, status: :not_found and return
+        render json:[], status: :not_found and return
       end
       # データ取得
       ActiveSupport::JSON::Encoding.use_standard_json_time_format = true
