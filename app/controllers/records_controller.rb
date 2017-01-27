@@ -40,9 +40,15 @@ class RecordsController < ApplicationController
     render json:json.to_json
   end
 
+  # GET /records/today.json
+  def today
+    params[:date] = Time.now.in_time_zone('Asia/Tokyo').strftime('%Y%m%d')
+    show
+  end
+
   # GET /records/20170124.json
   def show
-    @date = (params[:date] == 'today' ? Date.today : Date.parse(params[:date]))
+    @date = Date.parse(params[:date])
     # 未来のデータは存在しないので404
     if @date > Time.now.in_time_zone('Asia/Tokyo').to_date
       render json:{}, status: :not_found and return
