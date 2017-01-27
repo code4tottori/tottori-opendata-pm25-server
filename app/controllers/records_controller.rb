@@ -4,6 +4,7 @@ class RecordsController < ApplicationController
   def index
   end
 
+  # GET /records/graph.json
   def graph
     # build tidy data
     data = {}
