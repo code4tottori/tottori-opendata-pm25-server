@@ -13,6 +13,11 @@
 
 <div id="chart"></div>
 
+<% if ENV['TWITTER_NOTIFICATION'] && ENV['TWITTER_ID'] %>
+<%= link_to "Tweets by @#{ENV['TWITTER_ID']}", "https://twitter.com/#{ENV['TWITTER_ID']}", class:'twitter-timeline', width:350, 'data-chrome':'transparent nofooter' %>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<% end %>
+
 <p>
   <strong>Example:</strong>
 </p>

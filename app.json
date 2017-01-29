@@ -21,7 +21,7 @@
     },
     "APP_ACCESS_SECRET": {},
     "NOTIFICATION_THRESHOLD": {
-      "value": "35"
+      "value": "12"
     },
     "TWITTER_NOTIFICATION": {},
     "TWITTER_CONSUMER_KEY": {},
