@@ -14,7 +14,7 @@ class TweetJob < ApplicationJob
     end
     return if results.empty?
     message = ''
-    message << '【鳥取県PM2.5情報】'
+    message << '📢【鳥取県PM2.5情報】'
     message << data[:time].strftime('%m月%d日')
     message << "#{data[:time].hour + 1}時現在、"
     message << "次の測定局でPM2.5の濃度が#{@threshold} μg/m³を超えています。"
