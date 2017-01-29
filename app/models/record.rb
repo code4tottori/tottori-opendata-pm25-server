@@ -23,8 +23,7 @@ class Record < ApplicationRecord
         return record
       end
       # データ取得
-      ActiveSupport::JSON::Encoding.use_standard_json_time_format = true
-      data = Tottori::OpenData::PM25::API.get(date.in_time_zone('Asia/Tokyo')).to_json
+      data = Record.fetch_data(date)
       # DB更新
       record.update(data:data)
       return record
@@ -37,13 +36,17 @@ class Record < ApplicationRecord
         return nil
       end
       # データ取得
-      ActiveSupport::JSON::Encoding.use_standard_json_time_format = true
-      data = Tottori::OpenData::PM25::API.get(date.in_time_zone('Asia/Tokyo')).to_json
+      data = Record.fetch_data(date)
       # DB追加
       record = Record.new(date:date, data:data)
       record.save
       return record
     end
+  end
+
+  def self.fetch_data(date)
+    ActiveSupport::JSON::Encoding.use_standard_json_time_format = true
+    Tottori::OpenData::PM25::API.get(date.in_time_zone('Asia/Tokyo')).to_json
   end
 
 end
