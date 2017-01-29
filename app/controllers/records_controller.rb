@@ -6,12 +6,17 @@ class RecordsController < ApplicationController
 
   # GET /records/update.json
   def update
-    # update data
-    Record.get(Date.parse(Time.now.in_time_zone('Asia/Tokyo').strftime('%Y%m%d')))
-    # tweet data
-    TweetJob.perform_later
-    # return ok
-    render json:[], status: :ok
+    key = 'APP_ACCESS_SECRET'
+    if params[key.downcase] && ENV[key] && params[key.downcase] == ENV[key]
+      # update data
+      Record.get(Date.parse(Time.now.in_time_zone('Asia/Tokyo').strftime('%Y%m%d')))
+      # tweet data
+      TweetJob.perform_later
+      # return ok
+      render json:[], status: :ok
+    else
+      render json:[], status: :not_found
+    end
   end
 
   # GET /records/graph.json

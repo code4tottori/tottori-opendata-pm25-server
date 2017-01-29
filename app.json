@@ -19,6 +19,7 @@
     "RAILS_FORCE_SSL": {
       "value": "enabled"
     },
+    "APP_ACCESS_SECRET": {},
     "NOTIFICATION_THRESHOLD": {
       "value": "35"
     },
