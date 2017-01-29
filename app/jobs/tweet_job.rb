@@ -17,7 +17,7 @@ class TweetJob < ApplicationJob
     message << '【鳥取県PM2.5情報】'
     message << data[:time].strftime('%m月%d日')
     message << "#{data[:time].hour + 1}時現在、"
-    message << "次の測定局でPM2.5の濃度が#{@threshold} μg/m³を超えました。"
+    message << "次の測定局でPM2.5の濃度が#{@threshold} μg/m³を超えています。"
     message << results.to_a.map{ |e| e.join(' ') }.join(' ')
     message << ' http://tottori-taiki.users.tori-info.co.jp/taiki/pc/graph/'
     message << ' #tottoriken'
