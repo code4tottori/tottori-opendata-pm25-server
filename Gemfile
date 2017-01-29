@@ -16,6 +16,7 @@ gem 'therubyracer'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'tottori-opendata-pm25-api'
+gem 'twitter', '~> 6.1'
 
 group :production do
   gem 'pg'
