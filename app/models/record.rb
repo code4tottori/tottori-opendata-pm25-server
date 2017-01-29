@@ -4,7 +4,7 @@ class Record < ApplicationRecord
     Record.order(:updated_at).select(:updated_at).last&.updated_at
   end
 
-  def self.fetch(date = Time.now.in_time_zone('Asia/Tokyo').to_date)
+  def self.get(date = Time.now.in_time_zone('Asia/Tokyo').to_date)
     # 未来のデータは存在しない
     if date > Time.now.in_time_zone('Asia/Tokyo').to_date
       return nil

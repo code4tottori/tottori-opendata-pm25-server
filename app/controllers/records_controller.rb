@@ -49,7 +49,7 @@ class RecordsController < ApplicationController
   # GET /records/20170124.json
   def show
     @date = Date.parse(params[:date])
-    @record = Record.fetch(@date)
+    @record = Record.get(@date)
     if @record
       if @record.errors.empty?
         render json:@record.data, status: :ok and return
