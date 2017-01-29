@@ -61,6 +61,10 @@ GEM
     debug_inspector (0.0.2)
     domain_name (0.5.20161129)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.1.1)
+    dotenv-rails (2.1.1)
+      dotenv (= 2.1.1)
+      railties (>= 4.0, < 5.1)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -258,6 +262,7 @@ DEPENDENCIES
   bullet
   byebug
   coffee-rails (~> 4.2)
+  dotenv-rails
   guard-livereload
   hirb
   hirb-unicode
