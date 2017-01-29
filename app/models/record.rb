@@ -4,6 +4,31 @@ class Record < ApplicationRecord
     Record.order(:updated_at).select(:updated_at).last&.updated_at
   end
 
+  def self.get_current_data
+    time = Time.now.in_time_zone('Asia/Tokyo')
+    t2 = Time.iso8601(time.ago(1.hour).strftime('%Y-%m-%dT%H:00:00.000+09:00'))
+    date = time.to_date
+    record = Record.get(date)
+    values = {}
+    JSON.parse(record.data).each do |entry|
+      entry_name = entry['name']
+      entry_values = entry['values']
+      entry_values.each do |entry_value|
+        entry_time = entry_value['time']
+        entry_value = entry_value['value']
+        t1 = Time.iso8601(entry_time)
+        if entry_value && t1 == t2
+          values[entry_name] = entry_value
+        end
+      end
+    end
+    return {
+      names: values.keys,
+      time: t2,
+      values: values,
+    }
+  end
+
   def self.get(date = Time.now.in_time_zone('Asia/Tokyo').to_date)
     # 未来のデータは存在しない
     if date > Time.now.in_time_zone('Asia/Tokyo').to_date

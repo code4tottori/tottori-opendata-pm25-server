@@ -4,6 +4,16 @@ class RecordsController < ApplicationController
   def index
   end
 
+  # GET /records/update.json
+  def update
+    # update data
+    Record.get(Date.parse(Time.now.in_time_zone('Asia/Tokyo').strftime('%Y%m%d')))
+    # tweet data
+    TweetJob.perform_later
+    # return ok
+    render json:[], status: :ok
+  end
+
   # GET /records/graph.json
   def graph
     # build tidy data
