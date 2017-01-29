@@ -4,7 +4,7 @@ class TweetJob < ApplicationJob
   def perform(*args)
     return if ENV['TWITTER_NOTIFICATION'].blank?
     @threshold = ENV['NOTIFICATION_THRESHOLD'].to_i
-    @threshold = 35 if @threshold.zero?
+    @threshold = 12 if @threshold.zero?
     results = {}
     data = Record.get_current_data
     data[:values].each do |name, value|
