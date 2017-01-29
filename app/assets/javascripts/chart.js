@@ -12,28 +12,40 @@ var params = {
             "title": "PM2.5 [μg/m3]",
             "guides": [
                 {
-                    "fillAlpha": 0.1,
+                    "fillAlpha": 0.15,
                     "fillColor": "#dddddd",
                     "lineAlpha": 0,
                     "value": 0,
-                    "toValue": 15
+                    "toValue": 12
                 }, {
-                    "fillAlpha": 0.1,
-                    "fillColor": "#999999",
+                    "fillAlpha": 0.15,
+                    "fillColor": "#FFFF00",
                     "lineAlpha": 0,
-                    "value": 15,
+                    "value": 12,
                     "toValue": 35
                 }, {
-                    "fillAlpha": 0.1,
-                    "fillColor": "#999900",
+                    "fillAlpha": 0.15,
+                    "fillColor": "#FFA500",
                     "lineAlpha": 0,
                     "value": 35,
-                    "toValue": 50
+                    "toValue": 55
                 }, {
-                    "fillAlpha": 0.1,
-                    "fillColor": "#990099",
+                    "fillAlpha": 0.15,
+                    "fillColor": "#FF0000",
                     "lineAlpha": 0,
-                    "value": 50,
+                    "value": 55,
+                    "toValue": 150
+                }, {
+                    "fillAlpha": 0.15,
+                    "fillColor": "#800080",
+                    "lineAlpha": 0,
+                    "value": 150,
+                    "toValue": 250
+                }, {
+                    "fillAlpha": 0.15,
+                    "fillColor": "#800000",
+                    "lineAlpha": 0,
+                    "value": 250,
                     "toValue": 1000
                 }
             ]
