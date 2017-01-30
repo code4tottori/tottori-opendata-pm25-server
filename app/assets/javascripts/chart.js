@@ -10,6 +10,7 @@ var params = {
     marginRight: 0,
     marginBottm: 0,
     panEventsEnabled: false,
+    pathToImages: 'images/amcharts/',
     "valueAxes": [
         {
             "position": "left",
