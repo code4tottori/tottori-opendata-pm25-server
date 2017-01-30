@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'tottori-opendata-pm25-api'
 gem 'twitter', '~> 6.1'
+gem 'bootstrap-sass', '~> 3.3.7'
 
 group :production do
   gem 'pg'
