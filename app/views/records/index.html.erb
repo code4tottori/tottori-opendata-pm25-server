@@ -1,61 +1,51 @@
-<h1>Tottori Open Data PM2.5 API Server</h1>
-
-<% last_updated_at = Record.last_updated_at %>
-<p>
-  <strong>Last Updated at:</strong>
-  <span><%= last_updated_at&.in_time_zone('Asia/Tokyo') %></span>
-  <span>(<%= last_updated_at&.utc %>)</span>
-</p>
-
-<p>
-  <strong>Chart:</strong>
-</p>
-
-<div id="chart"></div>
-
-<% if ENV['TWITTER_NOTIFICATION'] && ENV['TWITTER_ID'] %>
-<%= link_to "Tweets by @#{ENV['TWITTER_ID']}", "https://twitter.com/#{ENV['TWITTER_ID']}", class:'twitter-timeline', width:350, 'data-chrome':'transparent nofooter' %>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-<% end %>
-
-<p>
-  <strong>Example:</strong>
-</p>
-
-<ul>
-  <li><%= link_to url_for(controller:'records', action:'graph'), controller:'records', action:'graph' %></li>
-  <li><%= link_to url_for(controller:'records', action:'show', date:'todaty'), controller:'records', action:'show', date:'today' %></li>
-  <% Record.order('date DESC').select(:date).each do |record| %>
-  <li><%= link_to url_for(controller:'records', action:'show', date:record.date.strftime('%Y%m%d')), controller:'records', action:'show', date:record.date.strftime('%Y%m%d') %></li>
-  <% end %>
-</ul>
-
-<p>
-  <strong>API:</strong>
-</p>
-
-<pre>
-GET /graph.json
-</pre>
-
-<pre>
-GET /today.json
-</pre>
-
-<pre>
-GET /%Y%m%d.json
-</pre>
-
-<p>
-  <strong>Source code:</strong>
-  <span>The source code is available at</span>
-  <span><%= link_to 'GitHub', 'https://github.com/code4tottori/tottori-opendata-pm25-server' %></span>
-</p>
-
-<p>
-  <strong>License:</strong>
-  <span>This API gets data which is the concentration of PM2.5 (fine particulate matter) in the atmosphere in Tottori Prefecture, Japan from</span>
-  <span><%= link_to 'http://tottori-taiki.users.tori-info.co.jp/taiki/pc/graph/', 'http://tottori-taiki.users.tori-info.co.jp/taiki/pc/graph/' %></span>
-  <span>as Open Data licensed</span>
-  <span><%= link_to  'CC-BY', 'https://creativecommons.org/licenses/by/2.1/jp/' %>.</span>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Tottori Open Data PM2.5 API Server</h1>
+      <% last_updated_at = Record.last_updated_at %>
+      <p>
+        <strong>Last Updated at:</strong>
+        <span><%= last_updated_at&.in_time_zone('Asia/Tokyo') %></span>
+        <span>(<%= last_updated_at&.utc %>)</span>
+      </p>
+      <h4>Chart</h4>
+      <div id="chart"></div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h4>API</h4>
+      <pre>GET /graph.json</pre>
+      <pre>GET /today.json</pre>
+      <pre>GET /%Y%m%d.json</pre>
+      <h4>Example</h4>
+      <ul>
+        <li><%= link_to url_for(controller:'records', action:'graph'), controller:'records', action:'graph' %></li>
+        <li><%= link_to url_for(controller:'records', action:'show', date:'todaty'), controller:'records', action:'show', date:'today' %></li>
+        <% Record.order('date DESC').select(:date).each do |record| %>
+        <li><%= link_to url_for(controller:'records', action:'show', date:record.date.strftime('%Y%m%d')), controller:'records', action:'show', date:record.date.strftime('%Y%m%d') %></li>
+        <% end %>
+      </ul>
+      <h4>Source code</h4>
+      <p>
+        <span>The source code is available at</span>
+        <span><%= link_to 'GitHub', 'https://github.com/code4tottori/tottori-opendata-pm25-server' %></span>
+      </p>
+      <h4>License</h4>
+      <p>
+        <span>This API gets data which is the concentration of PM2.5 (fine particulate matter) in the atmosphere in Tottori Prefecture, Japan from</span>
+        <span><%= link_to 'http://tottori-taiki.users.tori-info.co.jp/taiki/pc/graph/', 'http://tottori-taiki.users.tori-info.co.jp/taiki/pc/graph/' %></span>
+        <span>as Open Data licensed</span>
+        <span><%= link_to 'CC-BY', 'https://creativecommons.org/licenses/by/2.1/jp/' %>.</span>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <% if ENV['TWITTER_NOTIFICATION'] && ENV['TWITTER_ID'] %>
+      <%= link_to "Tweets by @#{ENV['TWITTER_ID']}", "https://twitter.com/#{ENV['TWITTER_ID']}", class:'twitter-timeline', 'data-chrome':'transparent nofooter' %>
+      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <% end %>
+    </div>
+  </div>
+</div>

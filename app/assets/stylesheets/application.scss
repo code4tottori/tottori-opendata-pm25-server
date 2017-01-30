@@ -1,7 +1,6 @@
-// = require_tree .
-// = require_self
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
 
 #chart {
-  width: 100%;
   height: 450px;
 }

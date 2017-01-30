@@ -6,6 +6,10 @@ var params = {
         "position": "bottom",
         "markerSize": 10
     },
+    marginLeft: 0,
+    marginRight: 0,
+    marginBottm: 0,
+    panEventsEnabled: false,
     "valueAxes": [
         {
             "position": "left",
